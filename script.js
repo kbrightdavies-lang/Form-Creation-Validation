@@ -18,32 +18,35 @@ form.addEventListener("submit", function (e) {
     const username = usernameInput.value;
     const passwordValue = passwordInput.value;
 
+    let messages = [];
     let isValid = true;
     feedbackDiv.textContent = ""; //to collect error messages
 
      // Check username
     if (username.length < 3) {
-        feedbackDiv.textContent += "❌ Username must be at least 3 characters long.\n";
+        messages.push("❌ Username must be at least 3 characters long.");
         isValid = false;
     }
 
     if (password.length < 8) {
-        feedbackDiv.textContent += "❌ Password must have at least 8 characters.\n";
+        messages.push("❌ Password must have at least 8 characters.");
         isValid = false;
     }
 
     // Check email
     if (!(email.includes("@") && email.includes("."))) {
-        feedbackDiv.textContent += "❌ Please enter a valid email.\n";
+        messages.push("❌ Please enter a valid email.");
         isValid = false;
     }
 
     // Final feedback
-    if (isValid) {
+    if (!isValid) {
+        feedbackDiv.textContent = messages.join("\n");
         feedbackDiv.textContent = "✅ Registration successful!";
-    } 
+    } else {
 
     console.log("Form valid:", isValid);
+    }
 });
 
 
