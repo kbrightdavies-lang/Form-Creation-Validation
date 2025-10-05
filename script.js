@@ -39,11 +39,18 @@ form.addEventListener("submit", function (e) {
         isValid = false;
     }
 
+    // ✅ Make feedback visible
+        feedbackDiv.style.display = "block";
+
+   
     // Final feedback
     if (!isValid) {
         feedbackDiv.textContent = messages.join("\n");
         feedbackDiv.textContent = "✅ Registration successful!";
+        feedbackDiv.style.color = "#28a745"; // Green
     } else {
+        feedbackDiv.innerHTML = messages.join("<br>");
+        feedbackDiv.style.color = "#dc3545"; // Red
 
     console.log("Form valid:", isValid);
     }
