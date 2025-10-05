@@ -8,6 +8,11 @@ const feedbackDiv = document.getElementById("form-feedback");
 
 form.addEventListener("submit", function (e) {
     e.preventDefault();
+
+    // ✅ Trim values to remove extra spaces
+        const username = usernameInput.value.trim();
+        const email = emailInput.value.trim();
+        const password = passwordInput.value.trim();
     
     const email = emailInput.value; 
     const username = usernameInput.value;
